@@ -1,8 +1,30 @@
+// var apiai = require('apiai');
+// var app = apiai("14650862bca649278a87aaea42a1b43e");
+// var request = app.textRequest()
+
+// request.on('response', function(response) {
+//     console.log(response);
+// });
+
+// request.on('error', function(error) {
+//     console.log(error);
+// });
+
+// request.end()
+
+//////////////////////////
+///// Main Variables /////
+/////////////////////////
+
+    ///// API.AI Keys /////
 var accessToken = "14650862bca649278a87aaea42a1b43e",
     baseUrl = "https://api.api.ai/v1/",
-    $speechInput,
-    $recBtn,
+
+
+    ///// Speech Recognition for HTML5 Speech Recog API /////
     recognition,
+
+    ///// Interactive Variables /////
     messageRecording = "Recording...",
     messageCouldntHear = "I couldn't hear you, could you say that again?",
     messageInternalError = "Oh no, there has been an internal server error",
@@ -11,17 +33,16 @@ var accessToken = "14650862bca649278a87aaea42a1b43e",
 
 $(document).ready(function() {
 
-  $speechInput = $("#speech");
-  $recBtn = $("#rec");
 
-  $speechInput.keypress(function(event) {
+
+  $("#speech").keypress(function(event) {
     if (event.which == 13) {
       event.preventDefault();
       send();
     }
   });
 
-  $recBtn.on("click", function(event) {
+  $("#rec").on("click", function(event) {
   switchRecognition();
   });
 
@@ -71,14 +92,14 @@ $(document).ready(function() {
       }
     }
     function setInput(text) {
-      $speechInput.val(text);
+      $("#speech").val(text);
       send();
     }
     function updateRec() {
-      $recBtn.text(recognition ? "Stop" : "Speak");
+      $("#rec").text(recognition ? "Stop" : "Speak");
     }
     function send() {
-      var text = $speechInput.val();
+      var text = $("#speech").val();
       $.ajax({
         type: "POST",
         url: baseUrl + "query/",
