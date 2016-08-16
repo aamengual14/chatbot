@@ -9,8 +9,8 @@ var mongoose = require('mongoose');
 
 
 dotenv.load();
-console.log(process.env.ACCESS_TOKEN);
 
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB_CONNECT);
 
 

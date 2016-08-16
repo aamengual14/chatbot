@@ -13,4 +13,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next) {
+  console.log(req.body);
+  var task = new Task({
+    name: req.body.name,
+    completed:  false,
+    priority: req.body.priority
+  });
+  task.save(function(err, task) {
+    if (err) return next(err);
+    res.redirect('/');
+  });
+});
+
 module.exports = router;
