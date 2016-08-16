@@ -17,15 +17,10 @@
 ///// Main Variables /////
 /////////////////////////
 
-    ///// API.AI Keys /////
-console.log(accessToken)
-// accessToken = "14650862bca649278a87aaea42a1b43e"
+
 var baseUrl = "https://api.api.ai/v1/",
-
-
     ///// Speech Recognition for HTML5 Speech Recog API. Will be Object /////
     recognition,
-
     ///// Interactive Variables /////
     messageRecording = "Recording...",
     messageCouldntHear = "I couldn't hear you, could you say that again?",
@@ -125,6 +120,7 @@ $(document).ready(function() {
       },
       data: JSON.stringify({q: text, lang: "en"}),
       success: function(data) {
+        console.log(data);
         prepareResponse(data);
       },
       error: function() {
@@ -134,7 +130,7 @@ $(document).ready(function() {
   }
   function prepareResponse(val) {
     var debugJSON = JSON.stringify(val, undefined, 2),
-      spokenResponse = val.result.speech;
+        spokenResponse = val.result.speech;
     respond(spokenResponse);
     debugRespond(debugJSON);
   }
