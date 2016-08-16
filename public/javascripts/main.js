@@ -12,13 +12,15 @@
 
 // request.end()
 
+
 //////////////////////////
 ///// Main Variables /////
 /////////////////////////
 
     ///// API.AI Keys /////
-var accessToken = ACCESS_TOKEN,
-    baseUrl = "https://api.api.ai/v1/",
+console.log(accessToken)
+// accessToken = "14650862bca649278a87aaea42a1b43e"
+var baseUrl = "https://api.api.ai/v1/",
 
 
     ///// Speech Recognition for HTML5 Speech Recog API. Will be Object /////

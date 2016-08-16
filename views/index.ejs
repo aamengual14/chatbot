@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>My Chatbot</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src='/javascripts/main.js'></script>
-
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-
-
     <div class="container">
       <input id="speech" type="text">
       <button id="rec" class="btn">Speak</button>
@@ -27,8 +23,12 @@
         <textarea id="response" cols="40" rows="20"></textarea>
       </div>
     </div>
-
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    debugger;
+    var accessToken = "<%= process.env.ACCESS_TOKEN %>";
+    </script>
+    <script type="text/javascript" src='/javascripts/main.js'></script>
   </body>
 </html>
 

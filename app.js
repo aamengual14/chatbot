@@ -1,9 +1,14 @@
+var dotenv = require('dotenv');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+dotenv.load();
+console.log(process.env.ACCESS_TOKEN);
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
