@@ -8,6 +8,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+
+
     <div class="container">
       <input id="speech" type="text">
       <button id="rec" class="btn">Speak</button>
@@ -23,6 +25,14 @@
         <textarea id="response" cols="40" rows="20"></textarea>
       </div>
     </div>
+
+    <div id="taskList">
+      <% tasks.forEach(function(task) { %>
+        <h4><%= task.name %></h4> <p> Priority: <%= task.priority %> </p>
+      <% }) %>
+    </div>
+
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
     debugger;
