@@ -17,11 +17,11 @@
 /////////////////////////
 
     ///// API.AI Keys /////
-var accessToken = "14650862bca649278a87aaea42a1b43e",
+var accessToken = ACCESS_TOKEN,
     baseUrl = "https://api.api.ai/v1/",
 
 
-    ///// Speech Recognition for HTML5 Speech Recog API /////
+    ///// Speech Recognition for HTML5 Speech Recog API. Will be Object /////
     recognition,
 
     ///// Interactive Variables /////
@@ -51,6 +51,11 @@ $(document).ready(function() {
     return false;
   });
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/// HTML5 Webkit SpeechRecognition API ***only available on Chrome*** and uses functions       ///
+/// built in webkitSpeechRecognition.                                                          ///
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
   function startRecognition() {
       recognition = new webkitSpeechRecognition();
       recognition.continuous = false;
@@ -75,70 +80,83 @@ $(document).ready(function() {
       };
       recognition.lang = "en-US";
       recognition.start();
-    }
+  }
 
-    function stopRecognition() {
-      if (recognition) {
-        recognition.stop();
-        recognition = null;
+  function stopRecognition() {
+    if (recognition) {
+      recognition.stop();
+      recognition = null;
+    }
+    updateRec();
+  }
+
+  function switchRecognition() {
+    if (recognition) {
+      stopRecognition();
+    } else {
+      startRecognition();
+    }
+  }
+
+  function setInput(text) {
+    $("#speech").val(text);
+    send();
+  }
+
+  function updateRec() {
+    $("#rec").text(recognition ? "Stop" : "Speak");
+  }
+
+/////////////////////////////////////
+///// Communication with API.AI /////
+/////////////////////////////////////
+
+  function send() {
+    var text = $("#speech").val();
+    $.ajax({
+      type: "POST",
+      url: baseUrl + "query/",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      headers: {
+        "Authorization": "Bearer " + accessToken
+      },
+      data: JSON.stringify({q: text, lang: "en"}),
+      success: function(data) {
+        prepareResponse(data);
+      },
+      error: function() {
+        respond(messageInternalError);
       }
-      updateRec();
+    });
+  }
+  function prepareResponse(val) {
+    var debugJSON = JSON.stringify(val, undefined, 2),
+      spokenResponse = val.result.speech;
+    respond(spokenResponse);
+    debugRespond(debugJSON);
+  }
+  function debugRespond(val) {
+    $("#response").text(val);
+  }
+
+///////////////////////////////////////////////////////////////////////////////
+///// Web Speech API *chrome only* to take the value and return in speech /////
+///////////////////////////////////////////////////////////////////////////////
+
+  function respond(val) {
+    if (val == "") {
+      val = messageSorry;
     }
-    function switchRecognition() {
-      if (recognition) {
-        stopRecognition();
-      } else {
-        startRecognition();
-      }
+    if (val !== messageRecording) {
+      var msg = new SpeechSynthesisUtterance();
+      msg.voiceURI = "native";
+      msg.text = val;
+      msg.lang = "en-US";
+      window.speechSynthesis.speak(msg);
     }
-    function setInput(text) {
-      $("#speech").val(text);
-      send();
-    }
-    function updateRec() {
-      $("#rec").text(recognition ? "Stop" : "Speak");
-    }
-    function send() {
-      var text = $("#speech").val();
-      $.ajax({
-        type: "POST",
-        url: baseUrl + "query/",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        headers: {
-          "Authorization": "Bearer " + accessToken
-        },
-        data: JSON.stringify({q: text, lang: "en"}),
-        success: function(data) {
-          prepareResponse(data);
-        },
-        error: function() {
-          respond(messageInternalError);
-        }
-      });
-    }
-    function prepareResponse(val) {
-      var debugJSON = JSON.stringify(val, undefined, 2),
-        spokenResponse = val.result.speech;
-      respond(spokenResponse);
-      debugRespond(debugJSON);
-    }
-    function debugRespond(val) {
-      $("#response").text(val);
-    }
-    function respond(val) {
-      if (val == "") {
-        val = messageSorry;
-      }
-      if (val !== messageRecording) {
-        var msg = new SpeechSynthesisUtterance();
-        msg.voiceURI = "native";
-        msg.text = val;
-        msg.lang = "en-US";
-        window.speechSynthesis.speak(msg);
-      }
-      $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
-    }
+    $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
+  }
 
 });
 
