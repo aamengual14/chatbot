@@ -5,9 +5,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 dotenv.load();
 console.log(process.env.ACCESS_TOKEN);
+
+mongoose.connect(process.env.DB_CONNECT);
+
 
 
 var routes = require('./routes/index');
