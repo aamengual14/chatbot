@@ -1,12 +1,3 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
 
 .chat-container {
   position: fixed;
@@ -72,7 +63,7 @@ textarea {
 .task__content {
   font-size: 14px;
   max-height: 0;
-  overflow: hidden;
+  overflow: scroll;
   -webkit-transition: all 0.35s ease-in;
 }
 .task__content.is-active {
@@ -80,13 +71,27 @@ textarea {
   max-height: 500px;
 }
 .task__btn {
-  width: 100%;
+  width: 304px;
   border: 2px solid white;
 }
 
 .task__btn:hover{
   background-color: #2a9fd6;
   color: white;
+}
+
+.spoken-response {
+  max-height: 0;
+  margin-top: 5px;
+  -webkit-transition: all 0.35s ease-in;
+}
+.spokesponse.is-active {
+  max-height: 400px;
+}
+.spoken-response__text {
+  background-color: black;
+  color: green;
+  font-size: 20px;
 }
 
 input:active, input:focus, textarea:active, textarea:focus {

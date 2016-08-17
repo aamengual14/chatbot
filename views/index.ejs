@@ -30,11 +30,11 @@
         Show Task List
       </div>
       <div class="task__content">
-        <textarea class="response" cols="40" rows="20">
+        <div id="response">
           <% tasks.forEach(function(task) { %>
-            <h4><%= task.name %></h4> <p> Priority: <%= task.priority %> </p>
+            <h6><%= task.name %></h6> <p> Priority: <%= task.priority %> </p>
           <% }) %>
-        </textarea>
+        </div>
       </div>
     </div>
 
