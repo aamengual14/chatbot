@@ -178,9 +178,6 @@ $(document).ready(function() {
       },
       success: function() {
         console.log("great success", data);
-        if (task === completeTask) {
-          completeTask(data)
-        }
       },
       error: function() {
         console.log("error");
