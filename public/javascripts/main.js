@@ -135,6 +135,7 @@ $(document).ready(function() {
       }
     });
   }
+
   function prepareResponse(val) {
     var debugJSON = JSON.stringify(val, undefined, 2),
         spokenResponse = val.result.speech;
@@ -154,12 +155,34 @@ $(document).ready(function() {
         console.log("error");
       }
 
-    })
+    });
+
     respond(spokenResponse);
     debugRespond(debugJSON);
   }
+
+
   function debugRespond(val) {
     $("#response").text(val);
+  }
+
+  function completeTask(val) {
+    $.ajax({
+      type: "POST",
+      url: "/",
+      dataType: "json",
+      data: {
+        name: val.result.parameters.text,
+        priority: val.result.parameters.priority
+      },
+      success: function(val) {
+        console.log("great success", val);
+      },
+      error: function() {
+        console.log("error");
+      }
+
+    });
   }
 
 ///////////////////////////////////////////////////////////////////////////////

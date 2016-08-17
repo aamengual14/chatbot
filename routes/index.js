@@ -26,4 +26,11 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.patch('/', function(req, res, next) {
+  Task.findbyID(taskID, completed: true, function(err, task){
+    // NOT SURE HERE
+  });
+  task.save //is this needed?
+})
+
 module.exports = router;
