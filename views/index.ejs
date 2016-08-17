@@ -14,22 +14,22 @@
       <input id="speech" type="text">
       <button id="rec" class="btn btn-primary">Speak</button>
       <div id="spokenResponse" class="spoken-response">
-        <div class="spoken-response__text"></div>
+        <div class="spoken-response-text"></div>
       </div>
     </div>
     <div class="debug">
-      <div class="debug__btn btn">
+      <div class="debug-btn btn">
         View AI JSON Results
       </div>
-      <div class="debug__content">
+      <div class="debug-content">
         <textarea id="response" cols="40" rows="20"></textarea>
       </div>
     </div>
     <div class="task">
-      <div class="task__btn btn">
+      <div class="task-btn btn">
         Show Task List
       </div>
-      <div class="task__content">
+      <div class="task-content">
         <div id="response">
           <% tasks.forEach(function(task) { %>
             <h6><%= task.name %></h6> <p> Priority: <%= task.priority %> </p>

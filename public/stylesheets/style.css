@@ -34,22 +34,22 @@ textarea {
   right: 0;
 }
 
-.debug__content {
+.debug-content {
   font-size: 14px;
   max-height: 0;
   overflow: hidden;
   -webkit-transition: all 0.35s ease-in;
 }
-.debug__content.is-active {
+.debug-content.is-active {
   display: block;
   max-height: 500px;
 }
-.debug__btn {
+.debug-btn {
   width: 100%;
   border: 2px solid white;
 }
 
-.debug__btn:hover{
+.debug-btn:hover{
   background-color: #2a9fd6;
   color: white;
 }
@@ -60,22 +60,22 @@ textarea {
   left: 0;
 }
 
-.task__content {
+.task-content {
   font-size: 14px;
   max-height: 0;
   overflow: scroll;
   -webkit-transition: all 0.35s ease-in;
 }
-.task__content.is-active {
+.task-content.is-active {
   display: block;
   max-height: 500px;
 }
-.task__btn {
+.task-btn {
   width: 304px;
   border: 2px solid white;
 }
 
-.task__btn:hover{
+.task-btn:hover{
   background-color: #2a9fd6;
   color: white;
 }
@@ -88,7 +88,7 @@ textarea {
 .spokesponse.is-active {
   max-height: 400px;
 }
-.spoken-response__text {
+.spoken-response-text {
   background-color: black;
   color: green;
   font-size: 20px;

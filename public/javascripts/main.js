@@ -45,12 +45,12 @@ $(document).ready(function() {
   switchRecognition();
   });
 
-  $(".debug__btn").on("click", function() {
+  $(".debug-btn").on("click", function() {
     $(this).next().toggleClass("is-active");
     return false;
   });
 
-  $(".task__btn").on("click", function() {
+  $(".task-btn").on("click", function() {
     $(this).next().toggleClass("is-active");
     return false;
   });
@@ -177,7 +177,7 @@ $(document).ready(function() {
       msg.lang = "en-US";
       window.speechSynthesis.speak(msg);
     }
-    $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
+    $("#spokenResponse").addClass("is-active").find(".spoken-response-text").html(val);
   }
 
 });
