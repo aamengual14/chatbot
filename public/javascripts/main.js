@@ -30,7 +30,7 @@ var baseUrl = "https://api.api.ai/v1/",
 
 $(document).ready(function() {
 
-
+///// If user presses enter, fire API Post request /////
 
   $("#speech").keypress(function(event) {
     if (event.which == 13) {
@@ -39,11 +39,18 @@ $(document).ready(function() {
     }
   });
 
+///// Toggling recording and not recording /////
+
   $("#rec").on("click", function(event) {
   switchRecognition();
   });
 
   $(".debug__btn").on("click", function() {
+    $(this).next().toggleClass("is-active");
+    return false;
+  });
+
+  $(".task__btn").on("click", function() {
     $(this).next().toggleClass("is-active");
     return false;
   });

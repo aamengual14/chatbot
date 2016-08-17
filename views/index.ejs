@@ -10,26 +10,32 @@
   <body>
 
 
-    <div class="container">
+    <div class="chat-container">
       <input id="speech" type="text">
-      <button id="rec" class="btn">Speak</button>
+      <button id="rec" class="btn btn-primary">Speak</button>
       <div id="spokenResponse" class="spoken-response">
         <div class="spoken-response__text"></div>
       </div>
     </div>
     <div class="debug">
       <div class="debug__btn btn">
-        Debug JSON results
+        View AI JSON Results
       </div>
       <div class="debug__content">
         <textarea id="response" cols="40" rows="20"></textarea>
       </div>
     </div>
-
-    <div id="taskList">
-      <% tasks.forEach(function(task) { %>
-        <h4><%= task.name %></h4> <p> Priority: <%= task.priority %> </p>
-      <% }) %>
+    <div class="task">
+      <div class="task__btn btn">
+        Show Task List
+      </div>
+      <div class="task__content">
+        <textarea class="response" cols="40" rows="20">
+          <% tasks.forEach(function(task) { %>
+            <h4><%= task.name %></h4> <p> Priority: <%= task.priority %> </p>
+          <% }) %>
+        </textarea>
+      </div>
     </div>
 
 

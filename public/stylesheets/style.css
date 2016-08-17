@@ -6,3 +6,98 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.chat-container {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+input {
+  color: #484848;
+  border: 2px solid #2a9fd6;
+  font-size: 20px;
+  height: 35px;
+  width: 450px;
+}
+
+textarea {
+  border: 2px solid #2a9fd6;
+  color: #484848;
+  width: 100%;
+  -webkit-transition: all 0.35s ease-in;
+}
+
+.btn {
+  margin-bottom: 7px;
+  cursor: pointer;
+  -webkit-transition: all 0.50s ease-in;
+
+}
+
+.debug {
+  bottom: 0;
+  position: fixed;
+  right: 0;
+}
+
+.debug__content {
+  font-size: 14px;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.35s ease-in;
+}
+.debug__content.is-active {
+  display: block;
+  max-height: 500px;
+}
+.debug__btn {
+  width: 100%;
+  border: 2px solid white;
+}
+
+.debug__btn:hover{
+  background-color: #2a9fd6;
+  color: white;
+}
+
+.task {
+  bottom: 0;
+  position: fixed;
+  left: 0;
+}
+
+.task__content {
+  font-size: 14px;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.35s ease-in;
+}
+.task__content.is-active {
+  display: block;
+  max-height: 500px;
+}
+.task__btn {
+  width: 100%;
+  border: 2px solid white;
+}
+
+.task__btn:hover{
+  background-color: #2a9fd6;
+  color: white;
+}
+
+input:active, input:focus, textarea:active, textarea:focus {
+      outline: 1px solid #48788B;
+  }
+
+
+
+
+
+
+
+
+
