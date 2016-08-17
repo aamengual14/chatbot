@@ -138,24 +138,8 @@ $(document).ready(function() {
 
   function prepareResponse(val) {
     var debugJSON = JSON.stringify(val, undefined, 2),
-        spokenResponse = val.result.speech;
-
-    $.ajax({
-      type: "POST",
-      url: "/",
-      dataType: "json",
-      data: {
-        name: val.result.parameters.text,
-        priority: val.result.parameters.priority
-      },
-      success: function(val) {
-        console.log("great success", val);
-      },
-      error: function() {
-        console.log("error");
-      }
-
-    });
+        spokenResponse = val.result.speech,
+        task = val.result.action;
 
     respond(spokenResponse);
     debugRespond(debugJSON);
@@ -166,7 +150,24 @@ $(document).ready(function() {
     $("#response").text(val);
   }
 
-  function completeTask(val) {
+  function completeTask() {
+    $.ajax({
+      type: "PATCH",
+      url: "/",
+      dataType: "json",
+      data: {
+        completed: true
+      },
+      success: function(data) {
+        console.log("Task has been completed: ", data);
+      },
+      error: function() {
+        console.log("error");
+      }
+    });
+  }
+
+  function createTask() {
     $.ajax({
       type: "POST",
       url: "/",
@@ -175,13 +176,15 @@ $(document).ready(function() {
         name: val.result.parameters.text,
         priority: val.result.parameters.priority
       },
-      success: function(val) {
-        console.log("great success", val);
+      success: function() {
+        console.log("great success", data);
+        if (task === completeTask) {
+          completeTask(data)
+        }
       },
       error: function() {
         console.log("error");
       }
-
     });
   }
 
@@ -192,7 +195,13 @@ $(document).ready(function() {
   function respond(val) {
     if (val == "") {
       val = messageSorry;
-    }
+    };
+
+    // if (val == "Task now complete") {
+    //   taskCompleted(task);
+    // }
+
+
     if (val !== messageRecording) {
       var msg = new SpeechSynthesisUtterance();
       msg.voiceURI = "native";

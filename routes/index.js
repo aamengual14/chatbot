@@ -27,8 +27,9 @@ router.post('/', function(req, res, next) {
 });
 
 router.patch('/', function(req, res, next) {
-  Task.findbyID(taskID, completed: true, function(err, task){
-    // NOT SURE HERE
+  Task.find({name: req.body.name}, function(err, task){
+    // update completed to true and sve
+    res.send(task);
   });
   task.save //is this needed?
 })
