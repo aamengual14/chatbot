@@ -32,7 +32,7 @@
       <div class="task-content">
         <div id="task-list">
           <% tasks.forEach(function(task) { %>
-            <div id="#task-item" data="<% task._id%>">
+            <div id="#task-item" data="<%= task._id %>">
               <h6 class="task-item"><%= task.name %><i class="fa fa-trash-o" aria-hidden="true"></i></h6> <p> Priority: <%= task.priority %> </p>
             </div>
           <% }) %>
