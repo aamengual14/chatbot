@@ -31,7 +31,7 @@ router.patch('/', function(req, res, next) {
   Task.findOneAndUpdate({name: req.body.name},{completed: true}, function(err, task){
     if (err) console.log(err);
     console.log(task);
-    res.json({ task: task});
+    res.json(task);
   });
 })
 
