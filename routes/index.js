@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
   });
   task.save(function(err, task) {
     if (err) return next(err);
-    res.redirect('/');
+    res.json({ task: task });
   });
 });
 

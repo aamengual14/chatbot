@@ -103,6 +103,10 @@ textarea {
   margin-left: 5px;
 }
 
+.strike {
+  text-decoration: line-through;
+}
+
 input:active, input:focus, textarea:active, textarea:focus {
       outline: 1px solid #48788B;
   }
