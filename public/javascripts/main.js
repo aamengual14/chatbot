@@ -165,9 +165,9 @@ $(document).ready(function() {
       data: {name: data},
       success: function(data) {
         console.log("Task has been completed: ", data);
-        $taskItem = $(".task-item");
-        console.log($taskItem.text());
-        if ($taskItem.text() === data.name) {
+        $taskItem = $("#task-list");
+        console.log($taskItem);
+        if ($taskItem.data() === data._id) {
           $taskItem.addClass('.strike');
           console.log("hello");
         }
