@@ -80,6 +80,13 @@ textarea {
   color: white;
 }
 
+.task-item {
+}
+
+#task-list {
+  text-align: center;
+}
+
 .spoken-response {
   max-height: 0;
   margin-top: 5px;
@@ -92,6 +99,10 @@ textarea {
   background-color: black;
   color: green;
   font-size: 20px;
+}
+
+.fa-trash-o {
+  margin-left: 5px;
 }
 
 input:active, input:focus, textarea:active, textarea:focus {
