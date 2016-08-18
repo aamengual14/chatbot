@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
+  console.log("post", req.body);
   var task = new Task({
     name: req.body.name,
     completed:  false,
@@ -25,5 +25,14 @@ router.post('/', function(req, res, next) {
     res.redirect('/');
   });
 });
+
+router.patch('/', function(req, res, next) {
+  console.log("patch", req.body);
+  Task.findOneAndUpdate({name: req.body.name},{completed: true}, function(err, task){
+    if (err) console.log(err);
+    console.log(task);
+    res.send(task);
+  });
+})
 
 module.exports = router;

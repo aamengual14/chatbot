@@ -136,53 +136,63 @@ $(document).ready(function() {
     });
   }
 
-  function prepareResponse(val) {
-    var debugJSON = JSON.stringify(val, undefined, 2),
-        spokenResponse = val.result.speech;
+  function prepareResponse(data) {
+    var debugJSON = JSON.stringify(data, undefined, 2),
+        spokenResponse = data.result.speech,
+        task = data.result.action,
+        value = data.result.parameters.name
 
-    $.ajax({
-      type: "POST",
-      url: "/",
-      dataType: "json",
-      data: {
-        name: val.result.parameters.text,
-        priority: val.result.parameters.priority
-      },
-      success: function(val) {
-        console.log("great success", val);
-      },
-      error: function() {
-        console.log("error");
-      }
-
-    });
+    if (task === "completeTask") {
+      completeTask(value);
+    } else {
+      createTask(data);
+    }
 
     respond(spokenResponse);
     debugRespond(debugJSON);
   }
 
 
-  function debugRespond(val) {
-    $("#response").text(val);
+  function debugRespond(data) {
+    $("#response").text(data);
   }
 
-  function completeTask(val) {
+  function completeTask(data) {
     $.ajax({
       type: "PATCH",
       url: "/",
       dataType: "json",
-      data: {
-        // unsure here
-      },
-      success: function(val) {
-        console.log("great success", val);
+      data: {name: data},
+      success: function(data) {
+        console.log("Task has been completed: ", data);
       },
       error: function() {
         console.log("error");
       }
-
     });
   }
+
+  function createTask(data) {
+    $.ajax({
+      type: "POST",
+      url: "/",
+      dataType: "json",
+      data: {
+        name: data.result.parameters.text,
+        priority: data.result.parameters.priority
+      },
+      success: function() {
+        console.log("great success", data);
+      },
+      error: function() {
+        console.log("error");
+      }
+    });
+  }
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 ///// Web Speech API *chrome only* to take the value and return in speech /////
@@ -191,7 +201,13 @@ $(document).ready(function() {
   function respond(val) {
     if (val == "") {
       val = messageSorry;
-    }
+    };
+
+    // if (val == "Task now complete") {
+    //   taskCompleted(task);
+    // }
+
+
     if (val !== messageRecording) {
       var msg = new SpeechSynthesisUtterance();
       msg.voiceURI = "native";
