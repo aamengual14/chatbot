@@ -31,8 +31,18 @@ router.patch('/', function(req, res, next) {
   Task.findOneAndUpdate({name: req.body.name},{completed: true}, function(err, task){
     if (err) console.log(err);
     console.log(task);
-    res.send(task);
+    res.json({ task: task});
   });
 })
+
+router.delete('/:id', function(req, res, next) {
+  console.log("delete", req.body);
+  Task.findOneAndRemove({name: req.body.name}, function(err, task){
+    if (err) console.log(err);
+    console.log(task);
+  });
+  res.josn({ task: task});
+});
+
 
 module.exports = router;

@@ -55,6 +55,13 @@ $(document).ready(function() {
     return false;
   });
 
+  $(".fa-trash-o").on('click', function() {
+    taskID = ($(this).parent().parent().attr('data-id'));
+    console.log(taskID);
+    deleteTask(taskID);
+    // ("#task-item[data-id='" + taskID + "']")
+  });
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /// HTML5 Webkit SpeechRecognition API ***only available on Chrome*** and uses functions       ///
 /// built in webkitSpeechRecognition.                                                          ///
@@ -194,6 +201,25 @@ $(document).ready(function() {
           </div>';
         $('#task-list').append(tmpl);
         console.log("great success", data);
+      },
+      error: function() {
+        console.log("error");
+      }
+    });
+  }
+
+
+  function deleteTask(taskID) {
+    $.ajax({
+      type: "DELETE",
+      url: "/" + taskID,
+      dataType: "json",
+      success: function() {
+        console.log(taskID);
+        console.log("Task has been deleted");
+        $taskItem = $("#task-item[data-id='" + taskID + "']");
+        $taskItem.remove();
+
       },
       error: function() {
         console.log("error");
