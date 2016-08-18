@@ -59,7 +59,6 @@ $(document).ready(function() {
     taskID = ($(this).parent().parent().attr('data-id'));
     console.log(taskID);
     deleteTask(taskID);
-    // ("#task-item[data-id='" + taskID + "']")
   });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -196,8 +195,8 @@ $(document).ready(function() {
       },
       success: function(data) {
         var tmpl = '\
-          <div id="task-item" data-id="' + data._id + '">\
-            <h6>'+ data.name + '<i class="fa fa-trash-o" aria-hidden="true"></i></h6> <p>\ Priority: ' + task.priority + '</p>\
+          <div id="task-item" data-id="' + data.task._id + '">\
+            <h6>'+ data.task.name + '<i class="fa fa-trash-o" aria-hidden="true"></i></h6> <p>\ Priority: ' + data.task.priority + '</p>\
           </div>';
         $('#task-list').append(tmpl);
         console.log("great success", data);

@@ -37,11 +37,11 @@ router.patch('/', function(req, res, next) {
 
 router.delete('/:id', function(req, res, next) {
   console.log("delete", req.body);
-  Task.findOneAndRemove({name: req.body.name}, function(err, task){
+  Task.findOneAndRemove({_id: req.params.id}, function(err, task){
     if (err) console.log(err);
-    console.log(task);
+    console.log("Task" + task);
+    res.json(task);
   });
-  res.josn({ task: task});
 });
 
 
