@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
+  console.log("post", req.body);
   var task = new Task({
     name: req.body.name,
     completed:  false,
@@ -27,11 +27,12 @@ router.post('/', function(req, res, next) {
 });
 
 router.patch('/', function(req, res, next) {
-  Task.find({name: req.body.name}, function(err, task){
-    // update completed to true and sve
+  console.log("patch", req.body);
+  Task.findOneAndUpdate({name: req.body.name},{completed: true}, function(err, task){
+    if (err) console.log(err);
+    console.log(task);
     res.send(task);
   });
-  task.save //is this needed?
 })
 
 module.exports = router;

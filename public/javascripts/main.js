@@ -136,28 +136,33 @@ $(document).ready(function() {
     });
   }
 
-  function prepareResponse(val) {
-    var debugJSON = JSON.stringify(val, undefined, 2),
-        spokenResponse = val.result.speech,
-        task = val.result.action;
+  function prepareResponse(data) {
+    var debugJSON = JSON.stringify(data, undefined, 2),
+        spokenResponse = data.result.speech,
+        task = data.result.action,
+        value = data.result.parameters.name
+
+    if (task === "completeTask") {
+      completeTask(value);
+    } else {
+      createTask(data);
+    }
 
     respond(spokenResponse);
     debugRespond(debugJSON);
   }
 
 
-  function debugRespond(val) {
-    $("#response").text(val);
+  function debugRespond(data) {
+    $("#response").text(data);
   }
 
-  function completeTask() {
+  function completeTask(data) {
     $.ajax({
       type: "PATCH",
       url: "/",
       dataType: "json",
-      data: {
-        completed: true
-      },
+      data: {name: data},
       success: function(data) {
         console.log("Task has been completed: ", data);
       },
@@ -167,14 +172,14 @@ $(document).ready(function() {
     });
   }
 
-  function createTask() {
+  function createTask(data) {
     $.ajax({
       type: "POST",
       url: "/",
       dataType: "json",
       data: {
-        name: val.result.parameters.text,
-        priority: val.result.parameters.priority
+        name: data.result.parameters.text,
+        priority: data.result.parameters.priority
       },
       success: function() {
         console.log("great success", data);
