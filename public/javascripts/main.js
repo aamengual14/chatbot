@@ -165,6 +165,10 @@ $(document).ready(function() {
       data: {name: data},
       success: function(data) {
         console.log("Task has been completed: ", data);
+        var taskItem = $(".task-item").html();
+        if (taskItem === data.name) {
+          taskItem.addClass('.strike');
+        }
       },
       error: function() {
         console.log("error");
