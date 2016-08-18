@@ -165,10 +165,10 @@ $(document).ready(function() {
       data: {name: data},
       success: function(data) {
         console.log("Task has been completed: ", data);
-        $taskItem = $("#task-list");
+        $taskItem = $("#task-item[data-id='" + data._id + "']");
         console.log($taskItem);
-        if ($taskItem.data() === data._id) {
-          $taskItem.addClass('.strike');
+        if ($taskItem) {
+          $taskItem.addClass('strike');
           console.log("hello");
         }
       },
@@ -187,7 +187,12 @@ $(document).ready(function() {
         name: data.result.parameters.text,
         priority: data.result.parameters.priority
       },
-      success: function() {
+      success: function(data) {
+        var tmpl = '\
+          <div id="task-item" data-id="' + data._id + '">\
+            <h6>'+ data.name + '<i class="fa fa-trash-o" aria-hidden="true"></i></h6> <p>\ Priority: ' + task.priority + '</p>\
+          </div>';
+        $('#task-list').append(tmpl);
         console.log("great success", data);
       },
       error: function() {
