@@ -1,14 +1,19 @@
-General Info:
+
+![Alt text](public/images/main-page.png)
+
+# My Chatbot
+
+### General Info:
 
     * Developer: Alfredo Amengual 
 
     * My Chatbot is an artificial intelligence powered chatbot that I made for personal use. 
 
-The Concept Behind the Idea: 
+### The Concept Behind the Idea: 
 
     * I chose this idea as my final project for General Assembly's Web Development Immersive program because I've always been fascinated by the idea of machine learning and artificial intelligence. My idea was to build a virtual personal assistant so that overtime, could help automate or make everyday tasks easier anytime I'm on the web. I tend to spontaneously have ideas as I surf the web, so rather than reminding myself on another app, I figured it would be cool to keep my chatbot's tab always open so I could ask it to generate tasks for me. 
 
-Technologies Used:
+### Technologies Used:
 
     * Server side: Express/Node.js
     * Database: MongoDB
@@ -20,7 +25,7 @@ Technologies Used:
     * Version Control: Git/Github
     * Heroku for Deployment
 
-Approach Taken:
+### Approach Taken:
 
     * Project time limit was 4 days
     * The first day was spent mostly planning out user stories, preconcepts, initial wire frames, and reading up on the API.AI documentation and guidelines online to draw inspiration from. I set up the bare bones skeleton of the app this day.
@@ -49,12 +54,12 @@ Approach Taken:
 ![Alt text](public/images/wireframe.jpg)
 
 
-Unsolved Problems:
+### Unsolved Problems:
 
     * As I scale out, I would like to refactor the code to make it bit drier and optimized for true SPA functionality. 
     * After you create a new task, there is a small bug on clicking to delete it. You have to refresh to then click it and it will disappear. 
 
-Usage/Installation Instructions:
+### Usage/Installation Instructions:
 
     * Fork or clone project on your Github
     * Clone on your local computer
@@ -70,10 +75,11 @@ Usage/Installation Instructions:
     ***Feel free to contact me on Github if you have any questions and I will be happy to help you through the process.***
 
 
-API.AI Additional Information:
-    * https://api.ai/
+### API.AI Additional Information:
+    * [API.AI Main Site](https://api.ai/)
+ 
 
-Moving Foward:
+### Moving Foward:
 
     * What I would have done differently:
         * I would not recommend getting into this project unless you have a clear idea of what it is that you want. However, once you know your direction, the API.AI technology is great to work with and has tons of online resources. I would have had a clearer vision of my final product, rather than a get creative as I go mindset given I only had 4 days to build.
