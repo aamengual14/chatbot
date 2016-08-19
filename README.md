@@ -46,7 +46,7 @@ Approach Taken:
     Wireframe:
         * Not much initial thoughts for the wireframe given the minimalistic idea of the project. I felt it was better to adjust as I go and learn the technology.
 
-![Alt text](public/images/wireframe.png)
+![Alt text](public/images/wireframe.jpg)
 
 
 Unsolved Problems:
