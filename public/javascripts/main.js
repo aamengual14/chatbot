@@ -1,36 +1,22 @@
-// var apiai = require('apiai');
-// var app = apiai("14650862bca649278a87aaea42a1b43e");
-// var request = app.textRequest()
-
-// request.on('response', function(response) {
-//     console.log(response);
-// });
-
-// request.on('error', function(error) {
-//     console.log(error);
-// });
-
-// request.end()
-
 
 //////////////////////////
 ///// Main Variables /////
 /////////////////////////
 
-
+    ///// Base url for API.AI calls /////
 var baseUrl = "https://api.api.ai/v1/",
     ///// Speech Recognition for HTML5 Speech Recog API. Will be Object /////
     recognition,
     ///// Interactive Variables /////
     messageRecording = "Recording...",
-    messageCouldntHear = "I couldn't hear you, could you say that again?",
-    messageInternalError = "Oh no, there has been an internal server error",
-    messageSorry = "I'm sorry, I don't have the answer to that yet.";
+    messageCouldntHear = "I couldn't hear you that time. Could you say that again?",
+    messageInternalError = "Oh no, looks like there has been an internal server error",
+    messageSorry = "I'm sorry, I don't know the answer to that yet.";
 
 
 $(document).ready(function() {
 
-///// If user presses enter, fire API Post request /////
+///// If user presses enter, fire API Post request send() /////
 
   $("#speech").keypress(function(event) {
     if (event.which == 13) {
@@ -39,21 +25,27 @@ $(document).ready(function() {
     }
   });
 
-///// Toggling recording and not recording /////
+///// Toggling recording and not recording, rec is button /////
 
   $("#rec").on("click", function(event) {
   switchRecognition();
   });
+
+///// View JSON results on page bottom right /////
 
   $(".debug-btn").on("click", function() {
     $(this).next().toggleClass("is-active");
     return false;
   });
 
+///// View task list on page bottom left /////
+
   $(".task-btn").on("click", function() {
     $(this).next().toggleClass("is-active");
     return false;
   });
+
+///// Delete task item, invokes deleteTask() /////
 
   $(".fa-trash-o").on('click', function() {
     taskID = ($(this).parent().parent().attr('data-id'));
@@ -71,16 +63,19 @@ $(document).ready(function() {
       recognition.continuous = false;
           recognition.interimResults = false;
       recognition.onstart = function(event) {
+///// shows user message is recording when speak button pressed /////
         respond(messageRecording);
         updateRec();
       };
       recognition.onresult = function(event) {
+///// resets /////
         recognition.onend = null;
 
         var text = "";
           for (var i = event.resultIndex; i < event.results.length; ++i) {
             text += event.results[i][0].transcript;
           }
+///// show result of what user said in input (if spoken) /////
           setInput(text);
         stopRecognition();
       };
@@ -92,6 +87,7 @@ $(document).ready(function() {
       recognition.start();
   }
 
+///// following 2 functions stop or switch listening process, used above ////
   function stopRecognition() {
     if (recognition) {
       recognition.stop();
@@ -108,6 +104,7 @@ $(document).ready(function() {
     }
   }
 
+///// user input and API.AI call /////
   function setInput(text) {
     $("#speech").val(text);
     send();
@@ -142,10 +139,16 @@ $(document).ready(function() {
     });
   }
 
+///// Variety of responses based on above function where this is invoked /////
+
   function prepareResponse(data) {
+    ///// debugJSON for bottom left page results /////
     var debugJSON = JSON.stringify(data, undefined, 2),
+    ///// spoken response for what bot says back /////
         spokenResponse = data.result.speech,
+    ///// task to check and see if action parameter from API.AI hit/////
         task = data.result.action,
+    ///// if above variable exits, it means a task was requested completed /////
         value = data.result.parameters.name
 
     if (task === "completeTask") {
@@ -158,11 +161,12 @@ $(document).ready(function() {
     debugRespond(debugJSON);
   }
 
-
+//// for bottom right results, invoked in prepareResponse /////
   function debugRespond(data) {
     $("#response").text(data);
   }
 
+///// task completion, communication with router to update databse and DOM /////
   function completeTask(data) {
     $.ajax({
       type: "PATCH",
@@ -184,6 +188,7 @@ $(document).ready(function() {
     });
   }
 
+///// new task created, communication with router to database save and DOM appear /////
   function createTask(data) {
     $.ajax({
       type: "POST",
@@ -207,7 +212,7 @@ $(document).ready(function() {
     });
   }
 
-
+///// on click of trash can button, this is invoked /////
   function deleteTask(taskID) {
     $.ajax({
       type: "DELETE",
