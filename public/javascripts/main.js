@@ -244,11 +244,6 @@ $(document).ready(function() {
       val = messageSorry;
     };
 
-    // if (val == "Task now complete") {
-    //   taskCompleted(task);
-    // }
-
-
     if (val !== messageRecording) {
       var msg = new SpeechSynthesisUtterance();
       msg.voiceURI = "native";
@@ -260,4 +255,5 @@ $(document).ready(function() {
   }
 
 });
+
 
