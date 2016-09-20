@@ -111,6 +111,44 @@ input:active, input:focus, textarea:active, textarea:focus {
       outline: 1px solid #48788B;
   }
 
+.modal-content {
+  background-color: #F4F4F4;
+  color: black;
+}
+
+.modal-title {
+  color: #2a9fd6;
+}
+
+.modal-header{
+  color: #999999;
+}
+
+.modal-footer {
+  color: #999999;
+}
+
+.close {
+  color: #2a9fd6;
+}
+.close:hover {
+  color: blue;
+  font-size: 25px;
+}
+
+#modal-close {
+  background-color: #2a9fd6;
+}
+#modal-close:hover {
+  cursor: pointer;
+  background-color: blue;
+
+}
+
+.modal-body h5 {
+  color: #2a9fd6;
+}
+
 
 
 

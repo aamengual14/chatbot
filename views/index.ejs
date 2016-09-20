@@ -33,24 +33,24 @@
               <li> Server-side: Node.js, Express, MongoDB </li>
               <li> Client-side: Bootstrap, jQuery, AJAX </li>
               <li> AI: API.ai </li>
-              <li> Speech: Chrome Web Speech API and HTML5 Webkit Speech Recognition API </li>
+              <li> Speech: Chrome Web Speech API, HTML5 Webkit Speech Recognition API </li>
             </ul>
             <h5> Features </h5>
             <ul>
-              <li> Small Talk: </li>
-              <li> Task Listing & Prioritization: </li>
+              <li> Small Talk: Chatbot currently has the capability to make general conversation courtesy of API.ai and general customizations I've made. </li>
+              <li> Task Listing & Prioritization: Users are able to create tasks will will be saved in the database (view 'Show Task List') through a voice command or text input. The chatbot can recognize keywords such as 'urgent', 'important', during task creation to add priority to the task. Users are also able to announce when a task has been completed through voice or text command, which wil then prompt the bot to cross the item off on the list. A user must physically click the trash can icon for it to disappear from the list. </li>
             </ul>
             <h5> Directions for Use </h5>
             <ul>
-              <li> Voice Command: </li>
-              <li> Text Inputs: </li>
-              <li> Task Creation: </li>
-              <li> Task Creation by Urgency: </li>
-              <li> Task Completion: </li>
+              <li> Voice Command: Click the blue 'Speak' button, wait for button text to change to 'Recording...', then say anything you'd like. </li>
+              <li> Text Inputs: Type anything into the input bar, press enter. </li>
+              <li> Task Creation: Type/speak any from of 'create task', 'new task', 'remind me to', etc. followed by the actual task. Speak to it as you if you were to naturally ask for it to create a task. Even if it does not properly interpret what you've said, it gets smarter with the more speech it hears. You are able to view the JSON results to debug where it might have misinterpreted - I'd appreciate any feedback from developers! </li>
+              <li> Task Creation by Urgency: This works generally the same way as above, but if you add a key word such as 'urgent {task}' or 'new important item {task}', it should be able to process the difference. </li>
+              <li> Task Completion: Same concept again, just make a request how you might naturally say it, i.e., 'finish task {task}', 'complete task {task}', 'mark {task} as done', etc. </li>
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" id="modal-close" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
