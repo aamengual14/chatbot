@@ -168,6 +168,14 @@ input:active, input:focus, textarea:active, textarea:focus {
     outline: 0 none;
 }
 
+.btn-md {
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 1.5s;
+}
+
+
+
+
 
 
 
