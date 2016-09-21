@@ -149,6 +149,24 @@ input:active, input:focus, textarea:active, textarea:focus {
   color: #2a9fd6;
 }
 
+#instructions {
+  position: absolute;
+  top: 0;
+  right: 44%;
+  margin-top: 5%;
+  background-color: black;
+  color: #888888;
+  border-color: black;
+}
+
+#instructions:hover {
+  cursor: pointer;
+  border-color: #2a9fd6;
+}
+
+#instructions:focus, #instructions:active:focus {
+    outline: 0 none;
+}
 
 
 
