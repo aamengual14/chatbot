@@ -4,6 +4,7 @@
   top: 35%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -webkit-animation-duration: 1.5s;
 }
 
 input {
@@ -32,6 +33,8 @@ textarea {
   bottom: 0;
   position: fixed;
   right: 0;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 1.5s;
 }
 
 .debug-content {
@@ -58,6 +61,8 @@ textarea {
   bottom: 0;
   position: fixed;
   left: 0;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 1.5s;
 }
 
 .task-content {
