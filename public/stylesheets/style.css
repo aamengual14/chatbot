@@ -117,8 +117,9 @@ input:active, input:focus, textarea:active, textarea:focus {
   }
 
 .modal-content {
-  background-color: #F4F4F4;
-  color: black;
+  background-color: #272b30;
+  color: #F4F4F4;
+  font-size: 16px;
 }
 
 .modal-title {
@@ -127,6 +128,7 @@ input:active, input:focus, textarea:active, textarea:focus {
 
 .modal-header{
   color: #999999;
+  text-align: center;
 }
 
 .modal-footer {
@@ -152,6 +154,22 @@ input:active, input:focus, textarea:active, textarea:focus {
 
 .modal-body h5 {
   color: #2a9fd6;
+  border-bottom: 1px solid whitesmoke;
+}
+
+
+
+.modal-body ul li {
+  margin: 5px;
+}
+
+
+.inner-li {
+  list-style: none;
+}
+
+.modal-dialog {
+  width: 50%;
 }
 
 #instructions {
@@ -176,6 +194,10 @@ input:active, input:focus, textarea:active, textarea:focus {
 .btn-md {
   -webkit-animation-duration: 1.5s;
   -webkit-animation-delay: 1.5s;
+}
+
+#myModal {
+  -webkit-animation-duration: 1s;
 }
 
 

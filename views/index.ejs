@@ -17,7 +17,7 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal fade animated slideInLeft" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade animated zoomIn" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -25,30 +25,61 @@
             <h4 class="modal-title" id="myModalLabel">Current Chatbot Features & Usage</h4>
           </div>
           <div class="modal-body">
-            <h5> Developer Notes: </h5>
+            <h5> Developer Notes </h5>
             <ul>
-              <li> I'm very interested in the way machine learning and general AI works, so this web application was built for personal use with the idea to continue to scale out over time and use as a virtual personal assistant. </li>
-              <li> Voice Commands work on Chrome browsers only. </li>
+              <li> This web application was built for personal use with the idea to continue to scale out over time and use as a virtual personal assistant. </li>
+              <li> Vocal user commands and vocal bot response work on Chrome browsers only. </li>
+              <li> <a href="https://github.com/aamengual14/chatbot">Github</a></li>
             </ul>
-            <h5> Technologies Used: </h5>
+            <h5> Current Features </h5>
+            <ul>
+              <li> Small Talk: </li>
+                <ul class="inner-li">
+                  <li> Chatbot currently has the capability to make general conversation.</li>
+                  <li> Example inputs: "Hello", "How are you?", "What is your name?", etc.</li>
+                </ul>
+              <li> Tasks & Prioritization: </li>
+                <ul class="inner-li">
+                  <li> Users are able to create tasks the bot will remember for you (view 'Show Task List') through. </li>
+                  <li> The chatbot can recognize keywords such as 'urgent', 'important', etc.,  during task creation to specify priority. </li>
+                  <li> Users can notify the bot when a task has been completed. The bot will then cross the item off on the list. </li>
+                </ul>
+            </ul>
+            <h5> Directions for Use </h5>
+            <ul>
+              <li> Voice Command: </li>
+                <ul class="inner-li">
+                  <li>Click the 'Speak' button, wait for text to change to 'Recording...'.</li>
+                  <li>Say anything you'd like.</li>
+                </ul>
+              <li> Text Inputs: </li>
+                <ul class="inner-li">
+                  <li>Type anything into the input bar.</li>
+                  <li>Press enter. </li>
+                </ul>
+              <li> Task Creation: </li>
+                <ul class="inner-li">
+                  <li>Type/speak any from of 'create task','new task', 'remind me to', etc. followed by the actual task.</li>
+                  <li>Speak to it as you if you were to naturally ask for it to create a task. Even if it does not properly interpret what you've said, it gets smarter with the more speech it hears.</li>
+                  <li>You are able to view the JSON results to debug where it might have misinterpreted - I'd appreciate any feedback from developers! </li>
+                </ul>
+              <li> Task Creation by Urgency: </li>
+                <ul class="inner-li">
+                  <li> This works generally the same way as above. </li>
+                   <li> If you add a key word such as 'urgent {task of your choice}' or 'new important item {task of your choice}', it should be able to process the difference. </li>
+                </ul>
+              <li> Task Completion: </li>
+                <ul class="inner-li">
+                  <li>Same concept again, just make a request how you might naturally say it.</li>
+                  <li>Example: 'finish task {existing task of choice}', 'complete task {existing task of choice}', 'mark {existing task of choice} as done', etc. </li>
+                </ul>
+            </ul>
+            <h5> Technologies Used </h5>
             <ul>
               <li> Server-side: Node.js, Express, MongoDB </li>
               <li> Client-side: Bootstrap, jQuery, AJAX </li>
               <li> AI: API.ai </li>
               <li> Speech: Chrome Web Speech API, HTML5 Webkit Speech Recognition API </li>
-            </ul>
-            <h5> Features </h5>
-            <ul>
-              <li> Small Talk: Chatbot currently has the capability to make general conversation courtesy of API.ai and general customizations I've made. </li>
-              <li> Task Listing & Prioritization: Users are able to create tasks will will be saved in the database (view 'Show Task List') through a voice command or text input. The chatbot can recognize keywords such as 'urgent', 'important', during task creation to add priority to the task. Users are also able to announce when a task has been completed through voice or text command, which wil then prompt the bot to cross the item off on the list. A user must physically click the trash can icon for it to disappear from the list. </li>
-            </ul>
-            <h5> Directions for Use </h5>
-            <ul>
-              <li> Voice Command: Click the blue 'Speak' button, wait for button text to change to 'Recording...', then say anything you'd like. </li>
-              <li> Text Inputs: Type anything into the input bar, press enter. </li>
-              <li> Task Creation: Type/speak any from of 'create task', 'new task', 'remind me to', etc. followed by the actual task. Speak to it as you if you were to naturally ask for it to create a task. Even if it does not properly interpret what you've said, it gets smarter with the more speech it hears. You are able to view the JSON results to debug where it might have misinterpreted - I'd appreciate any feedback from developers! </li>
-              <li> Task Creation by Urgency: This works generally the same way as above, but if you add a key word such as 'urgent {task}' or 'new important item {task}', it should be able to process the difference. </li>
-              <li> Task Completion: Same concept again, just make a request how you might naturally say it, i.e., 'finish task {task}', 'complete task {task}', 'mark {task} as done', etc. </li>
             </ul>
           </div>
           <div class="modal-footer">
