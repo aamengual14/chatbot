@@ -117,8 +117,8 @@ input:active, input:focus, textarea:active, textarea:focus {
   }
 
 .modal-content {
-  background-color: #272b30;
-  color: #F4F4F4;
+  background-color: #f4f4f4;
+  color: #293133;
   font-size: 16px;
 }
 
@@ -169,7 +169,7 @@ input:active, input:focus, textarea:active, textarea:focus {
 }
 
 .modal-dialog {
-  width: 50%;
+  width: 95%;
 }
 
 #instructions {
