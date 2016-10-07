@@ -159,7 +159,6 @@ input:active, input:focus, textarea:active, textarea:focus {
   text-align:center;
   padding:10px 20px;
   -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.8s;
   -webkit-box-shadow: 0px 9px 0px #84261a;
   -moz-box-shadow: 0px 9px 0px #84261a;
   box-shadow: 0px 9px 0px #84261a;
