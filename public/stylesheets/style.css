@@ -1,3 +1,4 @@
+/* Chat Container */
 
 .chat-container {
   position: fixed;
@@ -22,12 +23,78 @@ textarea {
   -webkit-transition: all 0.35s ease-in;
 }
 
-.btn {
-  margin-bottom: 7px;
-  cursor: pointer;
-  -webkit-transition: all 0.50s ease-in;
-
+.spoken-response {
+  max-height: 0;
+  margin-top: 5px;
+  -webkit-transition: all 0.35s ease-in;
 }
+.spokesponse.is-active {
+  max-height: 400px;
+}
+.spoken-response-text {
+  background-color: black;
+  color: green;
+  font-size: 20px;
+}
+
+input:active, input:focus, textarea:active, textarea:focus {
+      outline: 1px solid #48788B;
+  }
+
+
+/* Delete & Complete */
+
+.fa-trash-o {
+  margin-left: 5px;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: red;
+}
+
+
+/* Tasks  */
+
+.task {
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 1.5s;
+}
+
+.task-content {
+  font-size: 14px;
+  max-height: 0;
+  overflow: scroll;
+  -webkit-transition: all 0.35s ease-in;
+}
+.task-content.is-active {
+  display: block;
+  max-height: 500px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.task-btn {
+  width: 304px;
+  border: 2px solid white;
+}
+
+.task-btn:hover{
+  background-color: #2a9fd6;
+  color: white;
+}
+
+#task-list {
+  text-align: center;
+}
+
+
+/* Debug JSON */
 
 .debug {
   bottom: 0;
@@ -57,65 +124,53 @@ textarea {
   color: white;
 }
 
-.task {
-  bottom: 0;
-  position: fixed;
-  left: 0;
+
+/* Instructions Button */
+
+.btn {
+  margin-bottom: 7px;
+  cursor: pointer;
+  -webkit-transition: all 0.50s ease-in;
+}
+
+#btn-instructions-cont {
+  width: 100%;
+  text-align: center;
+}
+
+#instructions {
+  top: 0;
+  margin-top: 5%;
+  background-color: black;
+  color: #888888;
+  border-color: black;
+}
+
+#instructions:hover {
+  cursor: pointer;
+  border-color: #2a9fd6;
+}
+
+#instructions:focus, #instructions:active:focus {
+    outline: 0 none;
+}
+
+.btn-md {
   -webkit-animation-duration: 1.5s;
   -webkit-animation-delay: 1.5s;
 }
 
-.task-content {
-  font-size: 14px;
-  max-height: 0;
-  overflow: scroll;
-  -webkit-transition: all 0.35s ease-in;
-}
-.task-content.is-active {
-  display: block;
-  max-height: 500px;
-}
-.task-btn {
-  width: 304px;
-  border: 2px solid white;
+
+/* Modal Content */
+
+#myModal {
+  -webkit-animation-duration: 1s;
 }
 
-.task-btn:hover{
-  background-color: #2a9fd6;
-  color: white;
+.tech-color {
+  color: #607db8;
+  font-weight: bold;
 }
-
-
-#task-list {
-  text-align: center;
-}
-
-.spoken-response {
-  max-height: 0;
-  margin-top: 5px;
-  -webkit-transition: all 0.35s ease-in;
-}
-.spokesponse.is-active {
-  max-height: 400px;
-}
-.spoken-response-text {
-  background-color: black;
-  color: green;
-  font-size: 20px;
-}
-
-.fa-trash-o {
-  margin-left: 5px;
-}
-
-.strike {
-  text-decoration: line-through;
-  color: red;
-}
-
-input:active, input:focus, textarea:active, textarea:focus {
-      outline: 1px solid #48788B;
-  }
 
 .modal-content {
   background-color: #f4f4f4;
@@ -137,7 +192,6 @@ input:active, input:focus, textarea:active, textarea:focus {
   font-weight: bolder;
   color: #607db8;
 }
-
 
 .close {
   color: #607db8;
@@ -196,42 +250,9 @@ input:active, input:focus, textarea:active, textarea:focus {
   width: 50%;
 }
 
-#btn-instructions-cont {
-  width: 100%;
-  text-align: center;
-}
 
-#instructions {
-  top: 0;
-  margin-top: 5%;
-  background-color: black;
-  color: #888888;
-  border-color: black;
-}
 
-#instructions:hover {
-  cursor: pointer;
-  border-color: #2a9fd6;
-}
-
-#instructions:focus, #instructions:active:focus {
-    outline: 0 none;
-}
-
-.btn-md {
-  -webkit-animation-duration: 1.5s;
-  -webkit-animation-delay: 1.5s;
-}
-
-#myModal {
-  -webkit-animation-duration: 1s;
-}
-
-.tech-color {
-  color: #607db8;
-  font-weight: bold;
-}
-
+/* Media Queries */
 
 @media (max-width: 1190px) {
   .debug-content.is-active {

@@ -35,6 +35,9 @@ $(document).ready(function() {
 
   $(".debug-btn").on("click", function() {
     $(this).next().toggleClass("is-active");
+    if ($(window).width() <= 610) {
+      $(".task-btn").toggleClass('is-hidden');
+    }
     return false;
   });
 
