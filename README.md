@@ -19,7 +19,7 @@
 
     * Server side: Express/Node.js
     * Database: MongoDB
-    * Client side: HTML/CS, Javasscript
+    * Client side: HTML/CS, JavaScript
     * APIs:
         * API.AI (to create chatbot and establish intents/actions)
         * Chrome Web Speech API (for spoken response)
