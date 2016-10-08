@@ -196,10 +196,13 @@ input:active, input:focus, textarea:active, textarea:focus {
   width: 50%;
 }
 
+#btn-instructions-cont {
+  width: 100%;
+  text-align: center;
+}
+
 #instructions {
-  position: absolute;
   top: 0;
-  right: 44%;
   margin-top: 5%;
   background-color: black;
   color: #888888;
@@ -229,13 +232,6 @@ input:active, input:focus, textarea:active, textarea:focus {
   font-weight: bold;
 }
 
-@media (max-width: 1250px) {
-  #instructions {
-    width: 100%;
-    right: 0%;
-    text-align: center;
-  }
-}
 
 @media (max-width: 1190px) {
   .debug-content.is-active {
@@ -249,6 +245,9 @@ input:active, input:focus, textarea:active, textarea:focus {
   .chat-container {
     width: 100%;
     text-align: center;
+  }
+  .modal-dialog {
+    width: 95%;
   }
 }
 
