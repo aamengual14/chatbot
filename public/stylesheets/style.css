@@ -110,6 +110,7 @@ textarea {
 
 .strike {
   text-decoration: line-through;
+  color: red;
 }
 
 input:active, input:focus, textarea:active, textarea:focus {
@@ -228,6 +229,47 @@ input:active, input:focus, textarea:active, textarea:focus {
   font-weight: bold;
 }
 
+@media (max-width: 1250px) {
+  #instructions {
+    width: 100%;
+    right: 0%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1190px) {
+  .debug-content.is-active {
+    max-height: 300px;
+  }
+  .task-content.is-active {
+    max-height: 300px;
+  }
+}
+@media (max-width: 1040px) {
+  .chat-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 610px) {
+  .task {
+    bottom: 40px;
+    width: 100%;
+  }
+  .task-btn {
+    width: 100%;
+  }
+  .debug {
+    width: 100%;
+  }
+}
+
+@media (max-width: 517px) {
+  input {
+    width: 75%;
+  }
+}
 
 
 
