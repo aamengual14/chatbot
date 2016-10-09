@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 ///// Delete task item, invokes deleteTask() /////
 
-  $(".fa-trash-o").on('click', function() {
+  $(document).on('click', '.fa-trash-o', function() {
     var taskID = ($(this).parent().parent().attr('data-id'));
     console.log(taskID);
     deleteTask(taskID);
